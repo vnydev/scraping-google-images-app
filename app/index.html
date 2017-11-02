@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Scraping Images</title>
+  <!-- <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="./css/angular-material.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- <script src="./lib/angular.min.js"></script> -->
 </head>
-<body>
-    <h1>Scraping images from google</h1>
-    <hr>
-    <script src="./lib/jquery.min.js"></script>
-    <script src="./lib/bootstrap.min.js"></script>
-    <script src="./lib/angular.min.js"></script>
-    <script src="./lib/angular-route.min.js"></script>
+
+<body ng-app="myApp" layout="column">
+  <div class="head" layout="row">
+    <md-toolbar>
+      <h1>@Google Scrape Images App</h1>
+    </md-toolbar>
+    <div flex="30">
+        [flex="30"]
+      </div>
+      <div flex="45">
+        [flex="45"]
+      </div>
+  </div>
+  <div class="container" layout="row" flex>
+    <md-content id="content" class="viewSection" flex>
+      <input type="text" placeholder="Google images">
+      <input type="button" value="click">
+    </md-content>
+  </div>
+  <!-- <script src="./lib/jquery.min.js"></script> -->
+  <script src="./lib/angular.min.js"></script>
+  <script src="./lib/angular-route.min.js"></script>
+  <script src="./lib/angular-aria.min.js"></script>
+  <script src="./lib/angular-messages.min.js"></script>
+  <script src="./lib/angular-animate.min.js"></script>
+  <script src="./lib/angular-material.min.js"></script>
+  <script src="./js/app.js"></script>
 </body>
+
 </html>
