@@ -12,23 +12,43 @@
   <!-- <script src="./lib/angular.min.js"></script> -->
 </head>
 
-<body ng-app="myApp" layout="column">
-  <div class="head" layout="row">
-    <md-toolbar>
-      <h1>@Google Scrape Images App</h1>
-    </md-toolbar>
-    <div flex="30">
-        [flex="30"]
-      </div>
-      <div flex="45">
-        [flex="45"]
-      </div>
+<body ng-app="myApp" layout="column" ng-cloak md-theme="docs-dark">
+
+  <div class="top_header" layout="row" layout-wrap>
+    <div flex="70" flex-md>
+      <md-content class="" `>
+        <md-subheader class="md-no-sticky">
+          <h1> @Google Scrape Images App </h1>
+        </md-subheader>
+      </md-content>
+    </div>
+    <div flex="30" flex-md>
+      <md-content class="md-padding">
+        <md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+          <md-nav-item md-nav-href="#" name="page1">
+            Home
+          </md-nav-item>
+          <md-nav-item md-nav-href="#search-history" name="page2">
+            Search History
+          </md-nav-item>
+          <md-nav-item md-nav-href="#profile" name="page3">
+            Profile
+          </md-nav-item>
+          <!-- these require actual routing with ui-router or ng-route, so they
+                won't work in the demo
+                <md-nav-item md-nav-href="#page4" name="page5">Page Four</md-nav-item>
+                <md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
+                You can also add options for the <code>ui-sref-opts</code> attribute.
+                <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
+                  Page Six
+                </md-nav-item>
+                -->
+        </md-nav-bar>
+
+    </div>
   </div>
-  <div class="container" layout="row" flex>
-    <md-content id="content" class="viewSection" flex>
-      <input type="text" placeholder="Google images">
-      <input type="button" value="click">
-    </md-content>
+  <div class="mid_section" layout="column">
+      <ng-view></ng-view>
   </div>
   <!-- <script src="./lib/jquery.min.js"></script> -->
   <script src="./lib/angular.min.js"></script>
