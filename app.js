@@ -1,4 +1,5 @@
 var express = require('express');
+var cool = require('cool-ascii-faces');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -38,6 +39,9 @@ app.use(express.static(path.join(__dirname, 'app')));
 
 app.use('/api', index);
 app.use('/files', fileupload);
+app.get('/cool', function(request, response) {
+  response.send(cool());
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
