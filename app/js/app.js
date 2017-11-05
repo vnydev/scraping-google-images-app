@@ -17,7 +17,7 @@ app.config(function ($mdThemingProvider, $routeProvider, $locationProvider) {
         })
         .when("/search-history", {
             templateUrl: "../template/search_history.html",
-            controller:'home_ctrl'
+            controller:'search_history_ctrl'
         })
         .when("/profile", {
             templateUrl: "../template/profile.html",
@@ -25,22 +25,3 @@ app.config(function ($mdThemingProvider, $routeProvider, $locationProvider) {
         })
         .otherwise('/');
 });
-app.controller('home_ctrl', function ($scope, $http) {
-    $scope.allimages = [];
-    $scope.searchImage = function (image_name) {
-        $http({
-            method: 'GET',
-            url: '/images/' + image_name,
-        }).then(function successCallback(response) {
-            // this callback will be called asynchronously
-            // when the response is available
-            console.log("image get", response)
-            $scope.allimages = response.data.data;
-        }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-
-            console.log("error not found any image", response);
-        });
-    }
-})
