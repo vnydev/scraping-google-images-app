@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var callForImages = require('../public/javascripts/callGoogle');
 var keyword = require('../db/m_schema')
-const downloader = require('image-downloader')
 const filesArray = [];
 
 /* GET home page. */
@@ -14,20 +13,16 @@ router.get('/images', function (req, res, next) {
   images_data.then(function (suc) {
     console.log('first 30 results from google', suc.length);
     if (suc.length > 0) {
-     
       for (var i = 0; i < suc.length / 2; i++) {
-        console.log("1st image data in array", suc[i].url);
+        // console.log("1st image data in array", suc[i].url);
         filesArray.push(suc[i].url)
       }
-      
     }
-
     return res.json({ "status": 1, data: suc })
   }).catch(function (err) {
     console.log('err', err);
     return res.json({ "status": 0, data: err })
   });
-
 });
 
 router.post('/search_keyword', function (req, res) {
@@ -48,7 +43,8 @@ router.post('/search_keyword', function (req, res) {
 })
 
 router.get('/search_history', function (req, res) {
-  keyword.getkeyword(function (err, suc) {
+  data = {'keyword':"bikes"}
+  keyword.getkeyword(data, function (err, suc) {
     if (err) {
       console.error("search history is null", err);
       return res.status(500).jsonp({ status: 0, msg: "data couldn't be process" });

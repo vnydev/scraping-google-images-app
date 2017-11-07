@@ -11,6 +11,6 @@ module.exports.savekeyWord = function(data, callback){
     key.save(callback);
 }
 
-module.exports.getkeyword = function(callback){
-    keyWord.find({}, callback)
+module.exports.getkeyword = function(data, callback){
+    keyWord.find(data, callback);
 }
