@@ -5,7 +5,7 @@ var getImages = function(keyWord){
     console.log("call is going to fetch from google")
     var call = google.list({
         keyword: keyWord,
-        num: 5,
+        num: 30,
         detail: true,
         nightmare: {
             show: false

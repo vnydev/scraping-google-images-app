@@ -19,9 +19,9 @@ app.config(function ($mdThemingProvider, $routeProvider, $locationProvider) {
             templateUrl: "../template/search_history.html",
             controller:'search_history_ctrl'
         })
-        .when("/profile", {
+        .when("/profile/:keyname", {
             templateUrl: "../template/profile.html",
-            controller:'home_ctrl'
+            controller:'search_profile_ctrl'
         })
         .otherwise('/');
 });

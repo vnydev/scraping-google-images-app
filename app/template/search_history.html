@@ -1,1 +1,7 @@
-i contain history
+<div layout="row" layout-padding layout-wrap layout-fill class="searchkeywordStyle" ng-cloak>
+
+    <md-whiteframe  ng-repeat="key in searchHistory" class="md-whiteframe-1dp style-white-frame" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+        <span><a ng-href="#profile/{{key.keyword}}"> {{key.keyword}} </a></span>
+    </md-whiteframe>
+
+</div>

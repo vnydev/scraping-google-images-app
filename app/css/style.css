@@ -68,3 +68,24 @@ h1 small{
     width: 100% !important;
     height: 100%  !important
 }
+
+.style-white-frame{
+    background-color:rgb(60, 60, 60) !important; 
+    color:rgba(255,255,255,0.6);
+    margin: 5px;
+    width: auto;
+    height: auto;
+}
+.style-white-frame span a{
+    text-decoration: none;
+    color:rgba(255,255,255,0.6);
+}
+.style-white-frame span a:hover{
+    color:rgb(0,150,136);
+    cursor: pointer;
+}
+.searchkeywordStyle{
+    height: 100%;
+    width: 100%;
+    margin: 0px auto;
+}

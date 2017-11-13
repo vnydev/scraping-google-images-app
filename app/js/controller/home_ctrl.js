@@ -33,7 +33,4 @@ app.controller('home_ctrl', ['$scope', '$http', function ($scope, $http) {
             console.log("search key not save", err);
         })
     }
-
-   
-    
 }])
