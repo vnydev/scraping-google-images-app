@@ -1,17 +1,15 @@
-<!-- <div class="container" flex[90]>
+<div class="container" flex[90]>
     <md-content class="md-padding" layout="row" layout-xs="column">
         <div class="img_box">
             <h1>{{googleImages}}
-                <small ng-if="allimages.length > 0">Total Image {{allimages.length}} </small>
+                <small ng-if="profileDetails.image_link > 0">Total Image {{profileDetails.image_link.length}} </small>
             </h1>
             <br>
-            <md-card flex[25] ng-repeat="img in allimages">
-                <a ng-href="{{img.url}}" target="_blank">
-                    <img ng-src="{{img.url}}" id="my-canvas" class="md-card-image" alt="{{googleImages}} ">
+            <md-card flex[25] ng-repeat="img in profileDetails.image_link">
+                <a ng-href="{{img}}" target="_blank">
+                    <img ng-src="./../savedfiles/{{img}}" title="{{img}}" id="my-canvas" class="md-card-image" alt="{{profileDetails.keyword}} ">
                 </a>
             </md-card>
         </div>
     </md-content>
-</div> -->
-
-This keyword profile
+</div>

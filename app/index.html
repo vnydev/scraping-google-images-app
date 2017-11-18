@@ -12,7 +12,7 @@
   <!-- <script src="./lib/angular.min.js"></script> -->
 </head>
 
-<body ng-app="myApp" layout="column" ng-cloak md-theme="docs-dark">
+<body ng-app="myApp" layout="column" ng-cloak md-theme="docs-dark" ng-controller="mainCtrl">
 
   <div class="top_header" layout="row" layout-wrap>
     <div flex="70" flex-md>
@@ -26,14 +26,14 @@
     </div>
     <div flex="30" flex-md>
       <md-content class="md-padding">
-        <md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-          <md-nav-item md-nav-href="#" name="page1">
+        <md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentnavItem" nav-bar-aria-label="navigation links">
+          <md-nav-item md-nav-href="#" name="page1" ng-click="currentnav('home')">
             Home
           </md-nav-item>
-          <md-nav-item md-nav-href="#search-history" name="page2">
+          <md-nav-item md-nav-href="#search-history" name="page2" ng-click="currentnav('history')">
             Search History
           </md-nav-item>
-          <md-nav-item md-nav-href="#profile" name="page3">
+          <md-nav-item md-nav-href="#profile/{{profileParam}}" name="page3" ng-click="currentnav('profile')" ng-show="isActive">
             Profile
           </md-nav-item>
           <!-- these require actual routing with ui-router or ng-route, so they
@@ -62,6 +62,7 @@
   <script src="./js/app.js"></script>
   <script src="./js/controller/home_ctrl.js"></script>
   <script src="./js/controller/search_history_ctrl.js"></script>
+  <script src="./js/controller/search_profile_ctrl.js"></script>
 </body>
 
 </html>

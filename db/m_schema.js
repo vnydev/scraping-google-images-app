@@ -18,3 +18,7 @@ module.exports.savekeyWord = function(data, callback){
 module.exports.getkeyword = function(data, indx, callback){
     keyWord.find(data, indx, callback);
 }
+
+module.exports.getprofile = function(data, callback){
+    keyWord.findOne(data, callback);
+}

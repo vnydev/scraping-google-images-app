@@ -43,7 +43,7 @@ router.get('/images', function (req, res, next) {
 // })
 var download = function (uri, filename, callback) {
   request.head(uri, function (err, res, body) {
-    request(uri).pipe(fs.createWriteStream(path.join(__dirname + './../savedfiles', filename))).on('close', callback);
+    request(uri).pipe(fs.createWriteStream(path.join(__dirname + './../app/savedfiles', filename))).on('close', callback);
   });
 };
 router.post('/search_keyword', function (req, res) {
@@ -97,7 +97,7 @@ router.post('/search_keyword', function (req, res) {
 })
 
 router.get('/search_history', function (req, res) {
-  keyword.getkeyword({},{'keyword':1}, function (err, suc) {
+  keyword.getkeyword({}, { 'keyword': 1 }, function (err, suc) {
     if (err) {
       console.error("search history is null", err);
       return res.status(500).jsonp({ status: 0, msg: "data couldn't be process" });
@@ -106,5 +106,22 @@ router.get('/search_history', function (req, res) {
       return res.status(200).jsonp({ status: 1, data: suc })
     }
   })
+})
+
+router.get('/search_profile_details', function(req,res){
+  // console.log("search profile req", req.body)
+  var keyWord =  req.param('keyword');
+  var data = {"keyword":keyWord};
+  keyword.getprofile(data, function(err, suc){
+    if (err) {
+      console.error("profile details not found", err);
+      return res.status(500).jsonp({ status: 0, msg: "data couldn't be process" });
+    } else if (suc) {
+      console.log("successfully got the profile details", suc)
+      return res.status(200).jsonp({ status: 1, data: suc })
+    }else{
+      res.status(404).jsonp({ status: 0, msg: "data not found" })
+    }
+  });
 })
 module.exports = router;
