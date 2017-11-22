@@ -48,5 +48,5 @@ app.controller("mainCtrl", function($scope, $rootScope){
         // $scope.currentLink = getCurrentLinkFromRoute(current);
         console.log("current link", current)
       });  
-  
+      
 })
