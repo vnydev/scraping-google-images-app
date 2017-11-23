@@ -31,7 +31,7 @@ app.controller("mainCtrl", function($scope, $rootScope){
     $rootScope.profileParam = ""
     // console.log("href", window.location.href);
     // var url =  window.location.href
-    
+    $rootScope.loadingTime = false;
     $scope.currentnav = function(menu){
     //  url = url.split('#/')[1].split('/')[0];
         if(menu == 'profile'){

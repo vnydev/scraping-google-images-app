@@ -1,3 +1,4 @@
+
 <div class="container" flex[10]>
     <md-content id="content" class="viewSection" layout-padding flex>
         <div layout-gt-sm="row" class="mainContent">
@@ -12,16 +13,20 @@
 
     </md-content>
 </div>
-<div class="container" flex[90]>
+<div class="loader" layout="row" layout-md="column" layout-align="space-around" ng-show="loadingTime">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
+<div class="container" flex[90] ng-show="!loadingTime">
     <md-content class="md-padding" layout="row" layout-xs="column">
         <div class="img_box">
             <h1>{{googleImages}}
                 <small ng-if="allimages.length > 0">Total Image {{allimages.length}} </small>
             </h1>
             <br>
+            <h3 ng-if="allimages.length == 0 && !loadingTime" style="color:red">Image not found </h3>
             <md-card flex[25] ng-repeat="img in allimages">
                 <a ng-href="{{img.url}}" target="_blank">
-                    <img ng-src="{{img.url}}" id="my-canvas" class="md-card-image" alt="{{googleImages}} ">
+                    <img ng-src="{{img.url}}" id="my-canvas" class="md-card-image">
                 </a>
             </md-card>
         </div>

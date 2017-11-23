@@ -1,6 +1,6 @@
-app.controller('home_ctrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.allimages = [];
+app.controller('home_ctrl', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
     $scope.searchImage = function (image_name) {
+        $rootScope.loadingTime = true;
         $http({
             method: 'GET',
             url: '/api/images',
@@ -11,6 +11,7 @@ app.controller('home_ctrl', ['$scope', '$http', function ($scope, $http) {
             if (res.data.status === 1) {
                 $scope.allimages = res.data.data;
                 $scope.saveSearchKeyword(image_name)
+                $rootScope.loadingTime = false;
             } else if (res.data.status === 0) {
                 $scope.allimages = [];
             }
