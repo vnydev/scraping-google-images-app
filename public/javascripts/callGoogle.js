@@ -9,7 +9,9 @@ var getImages = function(keyWord){
         detail: true,
         nightmare: {
             show: false
-        }
+        },
+        rlimit: '30',			// number of requests to Google p second, default: unlimited
+        timeout: 30000
       })
       return call;
     //   .then(function (res) {
